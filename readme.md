@@ -1,5 +1,7 @@
 ```sh
 yarn add --dev babel-loader @babel/core @babel/runtime @babel/preset-env @babel/preset-react @babel/plugin-transform-runtime @babel/plugin-proposal-class-properties webpack webpack-cli webpack-dev-server
+
+yarn add --dev eslint babel-eslint eslint-plugin-babel prettier eslint-config-prettier eslint-plugin-prettier eslint-plugin-react
 ```
 
 ```javascript

@@ -1,9 +1,9 @@
-const path = require("path");
+const path = require('path')
 
 module.exports = {
-  mode: "development",
+  mode: 'development',
   entry: {
-    app: "./src/index.js"
+    app: './src/index.js'
   },
   module: {
     rules: [
@@ -13,21 +13,24 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            plugins: ["@babel/plugin-transform-runtime","@babel/plugin-proposal-class-properties"],
-            presets: ["@babel/preset-react","@babel/preset-env"]
+            plugins: [
+              '@babel/plugin-transform-runtime',
+              '@babel/plugin-proposal-class-properties'
+            ],
+            presets: ['@babel/preset-react', '@babel/preset-env']
           }
-        },
-      },
-    ],
+        }
+      }
+    ]
   },
-  devtool: "inline-source-map",
+  devtool: 'inline-source-map',
   devServer: {
-    contentBase: "./dist",
-    stats: {colors: true},
+    contentBase: './dist',
+    stats: { colors: true }
   },
   output: {
-    filename: "[name].bundle.js",
+    filename: '[name].bundle.js',
     // filename: "main.js",
-    path: path.resolve(__dirname, "dist")
+    path: path.resolve(__dirname, 'dist')
   }
-};
+}
