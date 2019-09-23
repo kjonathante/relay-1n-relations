@@ -1,6 +1,7 @@
 ```sh
-yarn add --dev babel-loader @babel/core @babel/runtime @babel/preset-env @babel/plugin-transform-runtime webpack webpack-cli webpack-dev-server
+yarn add --dev babel-loader @babel/core @babel/runtime @babel/preset-env @babel/preset-react @babel/plugin-transform-runtime @babel/plugin-proposal-class-properties webpack webpack-cli webpack-dev-server
 ```
+
 ```javascript
 //webpack.config.js
 const path = require("path");
@@ -16,19 +17,22 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
           options: {
-            plugins: ["@babel/plugin-transform-runtime"],
-            presets: ["@babel/preset-env"]
+            plugins: [
+              "@babel/plugin-transform-runtime",
+              "@babel/plugin-proposal-class-properties"
+            ],
+            presets: ["@babel/preset-react", "@babel/preset-env"]
           }
-        },
-      },
-    ],
+        }
+      }
+    ]
   },
   devtool: "inline-source-map",
   devServer: {
     contentBase: "./dist",
-    stats: {colors: true},
+    stats: { colors: true }
   },
   output: {
     filename: "[name].bundle.js",
@@ -37,12 +41,15 @@ module.exports = {
   }
 };
 ```
+
 ```json
 {
   "devDependencies": {
     "@babel/core": "^7.6.0",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/plugin-transform-runtime": "^7.6.0",
     "@babel/preset-env": "^7.6.0",
+    "@babel/preset-react": "^7.0.0",
     "@babel/runtime": "^7.6.0",
     "babel-loader": "^8.0.6",
     "webpack": "^4.40.2",
@@ -54,10 +61,12 @@ module.exports = {
     "build": "webpack"
   },
   "dependencies": {
-    "lodash": "^4.17.15"
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
   }
 }
 ```
+
 ```sh
 yarn run start
 ```
