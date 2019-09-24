@@ -14,6 +14,7 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             plugins: [
+              'relay',
               '@babel/plugin-transform-runtime',
               '@babel/plugin-proposal-class-properties'
             ],
