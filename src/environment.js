@@ -1,7 +1,7 @@
 import { Environment, Network, RecordSource, Store } from 'relay-runtime'
 
 function fetchQuery(operation, variables) {
-  return fetch('https://us1.prisma.sh/username-abcde/hello-world/dev', {
+  return fetch('https://us1.prisma.sh/kjonathante-151c9e/service-1n/dev', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
