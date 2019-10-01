@@ -18,7 +18,11 @@ module.exports = {
               '@babel/plugin-transform-runtime',
               '@babel/plugin-proposal-class-properties'
             ],
-            presets: ['@babel/preset-react', '@babel/preset-env']
+            presets: [
+              '@babel/preset-react',
+              '@babel/preset-env',
+              '@babel/preset-flow'
+            ]
           }
         }
       }
