@@ -1,10 +1,13 @@
+// @flow
 import React from 'react'
 import { graphql, QueryRenderer } from 'react-relay'
 import PostList from './PostList'
 
+import type { ViewerPostListQueryResponse } from 'ViewerPostListQuery.graphql'
+
 import environment from './environment'
 
-export default class ViewerPostList extends React.Component {
+export default class ViewerPostList extends React.Component<{}> {
   render() {
     return (
       <QueryRenderer
@@ -21,19 +24,25 @@ export default class ViewerPostList extends React.Component {
           }
         `}
         variables={{ where: { id: 'ck0yqro110wpl0b40pu2euozh' } }}
-        render={({ error, props }) => {
-          if (error) {
-            return <div>Error!</div>
+        render={({
+          error,
+          props
+        }: {
+          error: ?Error,
+          props: ?ViewerPostListQueryResponse
+        }) => {
+          if (props && props.user) {
+            return (
+              <div>
+                <div>Post list for User {props.user.id}:</div>
+                <PostList userPosts={props.user} />
+              </div>
+            )
+          } else if (error) {
+            return <div>error.message</div>
           }
-          if (!props) {
-            return <div>Loading...</div>
-          }
-          return (
-            <div>
-              <div>Post list for User {props.user.id}:</div>
-              <PostList userPosts={props.user} />
-            </div>
-          )
+
+          return <div>Loading...</div>
         }}
       />
     )
